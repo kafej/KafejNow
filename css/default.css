@@ -57,6 +57,9 @@ footer .setup {
 	float: left;
 	padding-left: 6px
 }
+button {
+
+}
 /*Cards*/
 .kafejnow {
 	min-width: 400px;
@@ -153,7 +156,6 @@ footer .setup {
 }
 #twitter-feed h1 {
     color:#5F5F5F;
-    margin-right: 80px;
     padding:4px 0px 9px 0px;
     font-size:18px;
     font-weight:lighter;   
@@ -255,33 +257,44 @@ footer .setup {
     float:left;
 }
 /*Weather*/
-#weather {
-    width: 100%;
-    margin: 0px auto;
-    text-align: center;
-    text-transform: uppercase;
+.weatherFeed {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
 }
-#weather h2 {
-    margin: 0 0 8px;
-    font-size: 48px;
-    font-weight: 300;
-    text-align: center;
-    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
+.weatherFeed a { color: #AAAAAA; }
+.weatherFeed a:hover {
+    color: #AAAAAA;
+    text-decoration: none;
 }
-#weather ul {
-    margin: 0;
-    padding: 0;
+.weatherItem {
+    padding: 0.8em;
+    text-align: right;
 }
-#weather li {
-    background: #fff;
-    background: rgba(255,255,255,0.90);
-    padding: 20px;
-    display: inline-block;
-    border-radius: 5px;
+.weatherCity { text-transform: uppercase; }
+.weatherTemp {
+    font-size: 2.8em;
+    font-weight: bold;
 }
-#weather .currently {
-    margin: 0 20px;
+#weatherList {
+    color: #AAAAAA;
+    font-size: 16px;
 }
+.weatherDesc, .weatherCity, .weatherForecastDay  { font-weight: bold;  }
+.weatherDesc { margin-bottom: 0.4em; }
+.weatherRange, .weatherWind, .weatherLink, .weatherForecastItem { font-size: 0.8em; }
+.weatherLink, .weatherForecastItem {
+    margin-top: 0.5em;
+    text-align: left;
+}
+.weatherForecastItem {
+    padding: 0.5em 0.5em 0.5em 80px;
+    background-color: #fff;
+    background-position: left center;
+}
+.weatherForecastDay { font-size: 1.1em; }
+
+.odd {}
+.even {}
 /*Clock*/
 #time{
     display: inline;
@@ -295,7 +308,6 @@ footer .setup {
 #settings {
     margin-top: 10px;
     background: #FFFFFF;
-    text-align: center;
     padding-right: 10px;
     padding-left: 10px;
     padding-top: 20px;
@@ -303,19 +315,37 @@ footer .setup {
     -moz-box-shadow: 2px 2px 1px #AEAEAE;
     -webkit-box-shadow: 2px 2px 1px #AEAEAE;
     box-shadow: 2px 2px 1px #AEAEAE;
-    display: none;
+    display: block;
+    font-size: 14px;
+}
+form {
+    display: block;
+    padding-bottom: 40px;
     font-size: 24px;
 }
-.settingsmain {
-    width: 100%;
-}
-.settingsoption {
+form label {
+    display: block;
     padding-top: 10px;
-    margin-left: 20px;
-    width: auto;
     text-align: left;
+    color: #AAAAAA;
+    font-weight: bold;
 }
-.settingsactive {
-    text-align: right;
+form input, select {
     margin-right: 20px;
+    margin-top: -22px;
+    text-align: left;
+    float: right;
+    color: #AAAAAA;
+    font-weight: bold;
+    border: 1px solid #AAAAAA;
+    border: inset 1px solid #AAAAAA;
+}
+#settingsbutton {
+    margin-top: 20px;
+    cursor: pointer;
+    display: block;
+}
+#morecards {
+    font-size: 16px;
+    cursor: pointer;
 }

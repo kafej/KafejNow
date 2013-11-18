@@ -47,7 +47,7 @@ $.fn.flickr = function(settings){
 				
 				//displaying a fixed amount of pictures.
 				if ( i === truelimit ) {
-					$this.append(template);
+					$('.kafejnow').prepend(template);
 				}
 			});
 		});
