@@ -292,7 +292,6 @@ button {
     background-position: left center;
 }
 .weatherForecastDay { font-size: 1.1em; }
-
 .odd {}
 .even {}
 /*Clock*/
@@ -332,13 +331,13 @@ form label {
 }
 form input, select {
     margin-right: 20px;
-    margin-top: -22px;
+    margin-top: -23px;
     text-align: left;
     float: right;
     color: #AAAAAA;
     font-weight: bold;
-    border: 1px solid #AAAAAA;
-    border: inset 1px solid #AAAAAA;
+    border: 2px solid #B0B0B0;
+    border: inset 1px solid #B0B0B0;
 }
 #settingsbutton {
     margin-top: 20px;
