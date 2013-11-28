@@ -35,6 +35,9 @@ a {
 a img {
 	border:none;
 }
+li {
+    list-style-type: none;
+}
 footer {
 	padding-top: 40px;
     padding-bottom: 20px;
@@ -356,9 +359,6 @@ form input, select {
 #todomain {
     margin-top: -50px;
     margin-left: -40px
-}
-#todomain li {
-    list-style-type: none;
 }
 #special {
     margin-top: 2px;
