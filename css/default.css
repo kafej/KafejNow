@@ -331,7 +331,7 @@ form label {
 }
 form input, select {
     margin-right: 20px;
-    margin-top: -23px;
+    margin-top: -26px;
     text-align: left;
     float: right;
     color: #AAAAAA;
@@ -347,4 +347,21 @@ form input, select {
 #morecards {
     font-size: 16px;
     cursor: pointer;
+}
+/*ToDo list*/
+#todoa {
+    font-size: 24px;
+    text-align: left;
+}
+#todomain {
+    margin-top: -50px;
+    margin-left: -40px
+}
+#todomain li {
+    list-style-type: none;
+}
+#special {
+    margin-top: 2px;
+    padding-right: 4px;
+    float: left;
 }

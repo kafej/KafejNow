@@ -20,16 +20,6 @@
 		// Variable for main flickr
 		var tag = $('.flickr').data('tags');
 		var page = $('.flickr').data('pages');
-		// Variable for changed flickr
-		$('#flickrtags').val(tag);
-		$('#flickrnumebrs').val(page);
-
-
-		// // set cookie
-		// $.cookie('my_cookie_name', 'value inside of it');
-
-		// // get cookie
-		// alert($.cookie('my_cookie_name'));
 
 		var searchterm = "kafej666";
 		$('#twitteruser').val(searchterm);
@@ -45,24 +35,50 @@
 		// 	    	function gettwitterjson() {};
 		// 	    }
 		// 	});
-		// }); 
-   		
+		// });
+		
+		// Get Cookies
+		var cookieFlickrtags = $.cookie('flickrtags');
+		var cookieFlickrnumbers = $.cookie('flickrnumebrs');
+		var cookieFlickrref = $.cookie('flickrref');
+		var todolistul = $.cookie('todolist');
+		$('#todomain').html(todolistul);
+
+		// Set Cookies values to element
+		if (cookieFlickrtags == '') {
+			$('#flickrtags').val(cookieFlickrtags);
+		} else if (cookieFlickrnumbers == '') {
+			$('#flickrnumebrs').val(cookieFlickrnumbers);
+		} else {
+			// Variable for changed flickr
+			$('#flickrtags').val(tag);
+			$('#flickrnumebrs').val(page);
+		}
+		
 		//Set refreshing
-	    setInterval(function() {
-			// Get user tag and run flickr function
-			$('.flickr').each(function(index) {
-				$(this).attr({
-					tags: 'tag',
-					pages: 'page'
-				})
-				.flickr({
-					limit: page,
-					options: {
-						tags: tag
-					}
+		function flickrrefreshing() {
+			var flickrref = $('#flickrint').val();
+			// set cookie
+			$.cookie('flickrref', flickrref, { expires: 365 });
+			// Main refreshing F
+			setInterval(function(flickrref) {
+				// Get user tag and run flickr function
+				$('.flickr').each(function(index) {
+					$(this).attr({
+						tags: 'tag',
+						pages: 'page'
+					})
+					.flickr({
+						limit: page,
+						options: {
+							tags: tag
+						}
+					});
 				});
-			});
-	    }, 200000);
+			}, flickrref);
+		}
+		flickrrefreshing();
+
 		// More cards
 		$('#morecards').click(function (e) {
 			$('#clickedmorecards').html('Soon...');
@@ -81,9 +97,23 @@
 			weatherGeocode('weatherLocation','weatherList');
 			e.preventDefault();
 
+			// Variable for flickr refreshing intercal
+			// var flickrint = $('#flickrrefresh').val();
+			// if (flickrint = "2 min") {
+			// 	expression
+			// } else {
+			// 	second expression
+			// }
+
 			// Variable for changed flickr
 			var tag2 = $('#flickrtags').val();
 			var page2 = $('#flickrnumebrs').val();
+
+			// set cookie
+			$.cookie('flickrtags', tag2, { expires: 365 });
+			$.cookie('flickrnumebrs', page2, { expires: 365 });
+
+			flickrrefreshing();
 
 			// if (tag !== tag2 && page !== page2) {
 				$('.flickr').each(function(index) {
@@ -228,12 +258,15 @@
 		    if ($('#todoinput').val() !== '') {
 		        var input_value = $('#todoinput').val();
 		        $('ul').append('<li>' + input_value + '<div title="Zamknij" id="special" class="close"></div></li>');
+		        // set cookie
+				$.cookie('todolist', $('#todomain').html(), 365);
 		    };
 		    $('#todoinput').val('');
 		});
 		$(document).on('click', '#special', function (e) {
 		    e.preventDefault();
 		    $(this).parent().remove();
+		    $.cookie('todolist', $('#todomain').html(), 365);
 		});
 	})
 	</script>
@@ -249,13 +282,19 @@
 				<label class="settingsoption">Flickr cards numbers: </label>
 				<select id="flickrnumebrs" class="settingsactive">
 					<option value="1">1</option>
-					<option value="2">2</option>
+					<option value="2" selected>2</option>
 					<option value="3">3</option>
 					<option value="4">4</option>
 					<option value="5">5</option>
 				</select>
 				<label class="settingsoption">Flickr refreshing interval: </label>
-				<input type="text" id="flickrrefresh" class="settingsactive" size="2" disabled />
+				<select id="flickrint" class="settingsactive">
+					<option value="120000">2 min</option>
+					<option value="300000" selected>5 min</option>
+					<option value="600000">10 min</option>
+					<option value="1200000">20 min</option>
+					<option value="1800000">30 min</option>
+				</select>
 				<label>Weather city: </label>
 				<input type="text" id="weatherLocation" name="weatherLocation" size="20" />
 				<div id="weatherList"></div>
@@ -264,7 +303,7 @@
 				<input type="submit" id="settingsbutton" name="settingsubmit" value="Show cards" />
 			</form>
 		</div>
-		<div class="card" id="zuoo">
+		<div class="card">
 			<div class="cardtitle">Example</div>
 			<div title="Zamknij" class="close"></div>
 			<div class="example">We set up some examples !!</div>
@@ -279,9 +318,11 @@
 			<div title="Zamknij" class="close"></div>
 			<form id="todo">
 			    <label>New Task: </label>
-			    <input type="text" id="todoinput" />
+			    <input type="text" id="todoinput" size="30" />
 			</form>
-			<ul id="todoa"></ul>
+			<div id="todomain">
+				<ul id="todoa"></ul>
+			</div>
 		</div>
 		<div class="card">
 			<div class="cardtitle">Weather</div>
