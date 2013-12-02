@@ -40,7 +40,7 @@ $.fn.flickr = function(settings){
 				});
 
 				// template of displayed images
-				template += '<div class="card"><div class="cardtitle">Flickr</div><div class="flickrtags">Tag: '+ settings.options.tags +'</div><div title="Zamknij" class="close"></div><a href="' + item.link + '" target="_blank">';
+				template += '<div class="card" style="display:block;"><div class="cardtitle">Flickr</div><div class="flickrtags">Tag: '+ settings.options.tags +'</div><div title="Zamknij" class="close"></div><a href="' + item.link + '" target="_blank">';
 				template += '<img title="' + item.title + '" src="' + thumbnails;
 				template += '" alt="'; template += item.title + '" />';
 				template += '</a></div>';

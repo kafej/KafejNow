@@ -74,6 +74,7 @@ button {
     width: 6em;
 }
 .kafejnow .card {
+    display: none;
 	margin-top: 10px;
 	background: #FFFFFF;
 	text-align: center;
@@ -317,7 +318,7 @@ button {
     -moz-box-shadow: 2px 2px 1px #AEAEAE;
     -webkit-box-shadow: 2px 2px 1px #AEAEAE;
     box-shadow: 2px 2px 1px #AEAEAE;
-    display: block;
+    display: none;
     font-size: 14px;
 }
 form {
