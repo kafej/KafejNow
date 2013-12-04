@@ -61,16 +61,15 @@ $(document).ready(function() {
   }
   flickrrefreshing();
 
+  $('#morecards').one('click', function(event) {
+    $('.puzzles').cube();
+  });
   // More cards
   $('#morecards').click(function (e) {
     if( $('#cube').css('display') == 'none' )  { 
         $('.kafejnow').prepend($("#cube"));
         $('#cube').fadeIn(500);
-        $('.puzzles').cube();
     } 
-    else { 
-        /*does not have*/ 
-    }
   });
   // Settings card
   $('.setup').click(function (e) {
@@ -231,13 +230,7 @@ $(document).ready(function() {
   });
   // deleting permanently clicked card
   $('.close').click(function(e){
-      $(this).parent().fadeOut(2500).remove();
-  });
-  // deleting clicked card
-  $('.close2').click(function(e){
-      $(this).parent().css({
-        display: 'none'
-      });
+      $(this).parent().fadeOut(500);
   });
   $('#todo').submit( function(e) {
     e.preventDefault();

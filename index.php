@@ -13,7 +13,7 @@
 	<div class="kafejnow">
 		<div id="settings">
 			<div class="cardtitle">Settings</div>
-			<div title="Zamknij" class="close2"></div>
+			<div title="Zamknij" class="close"></div>
 			<form id="settingsmain">
 				<label class="settingsoption">Flickr view tag: </label>
 				<input type="text" id="flickrtags" class="settingsactive" size="10" />
