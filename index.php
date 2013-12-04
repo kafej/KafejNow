@@ -72,6 +72,11 @@
 			<div title="Zamknij" class="close"></div>
 			<div id="twitter-feed"></div>
 		</div>
+		<div id="cube">
+			<div class="cardtitle">15 Puzzles</div>
+			<div title="Zamknij" class="close"></div>
+			<div class="puzzles"></div>
+		</div>
 		<div class="flickr" data-tags="funny" data-pages="2"></div>
 		<div id="morecards" class="card">
 			<div id="clickedmorecards">MORE CARDS</div>
@@ -84,6 +89,7 @@
 	<script src="js/zweatherfeed.js" type="text/javascript"></script>
 	<script src="js/jquery-ui.js" type="text/javascript"></script>
 	<script src="js/cookie.js" type="text/javascript"></script>
+	<script src="js/fifteengame.js" type="text/javascript"></script>
 	<script src="js/init.js" type="text/javascript"></script>
 </body>
 <footer>

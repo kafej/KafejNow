@@ -73,7 +73,7 @@ button {
     margin-right: auto;
     width: 6em;
 }
-.kafejnow .card {
+.card {
     display: none;
 	margin-top: 10px;
 	background: #FFFFFF;
@@ -85,6 +85,19 @@ button {
 	-moz-box-shadow: 2px 2px 1px #AEAEAE;
 	-webkit-box-shadow: 2px 2px 1px #AEAEAE;
 	box-shadow: 2px 2px 1px #AEAEAE;
+}
+#cube {
+    display: none;
+    margin-top: 10px;
+    background: #FFFFFF;
+    text-align: center;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    -moz-box-shadow: 2px 2px 1px #AEAEAE;
+    -webkit-box-shadow: 2px 2px 1px #AEAEAE;
+    box-shadow: 2px 2px 1px #AEAEAE;
 }
 .cardtitle{
 	margin-top: -16px;

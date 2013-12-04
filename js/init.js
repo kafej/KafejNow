@@ -63,8 +63,14 @@ $(document).ready(function() {
 
   // More cards
   $('#morecards').click(function (e) {
-    $('#clickedmorecards').html('Soon...');
-    e.preventDefault();
+    if( $('#cube').css('display') == 'none' )  { 
+        $('.kafejnow').prepend($("#cube"));
+        $('#cube').fadeIn(500);
+        $('.puzzles').cube();
+    } 
+    else { 
+        /*does not have*/ 
+    }
   });
   // Settings card
   $('.setup').click(function (e) {
