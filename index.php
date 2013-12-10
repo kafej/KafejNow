@@ -33,12 +33,17 @@
 					<option value="1200000">20 min</option>
 					<option value="1800000">30 min</option>
 				</select>
+				<label class="settingsoption">Puzzles Game: </label>
+				<select id="puzlesgameform" class="settingsactive">
+					<option value="8">8 puzzles</option>
+					<option value="15" selected>15 puzzles</option>
+				</select>				
 				<label>Weather city: </label>
 				<input type="text" id="weatherLocation" name="weatherLocation" size="20" />
 				<div id="weatherList"></div>
 				<label class="settingsoption">Twitter User: </label>
 				<input type="text" id="twitteruser" class="settingsactive" size="10" disabled>
-				<input type="submit" id="settingsbutton" name="settingsubmit" value="Show cards" />
+				<input type="submit" id="settingsbutton" name="settingsubmit" value="Update" />
 			</form>
 		</div>
 		<div class="card">
@@ -73,7 +78,7 @@
 			<div id="twitter-feed"></div>
 		</div>
 		<div id="cube">
-			<div class="cardtitle">15 Puzzles</div>
+			<div class="cardtitle">Puzzles Game</div>
 			<div title="Zamknij" class="close"></div>
 			<div class="puzzles"></div>
 		</div>

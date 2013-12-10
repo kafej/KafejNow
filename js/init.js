@@ -3,8 +3,8 @@ $(document).ready(function() {
   var tag = $('.flickr').data('tags');
   var page = $('.flickr').data('pages');
 
-  var searchterm = "kafej666";
-  $('#twitteruser').val(searchterm);
+  // var searchterm = "kafej666";
+  // $('#twitteruser').val(searchterm);
 
     // $("#submit").click(function(){
     //   $.ajax(
@@ -20,10 +20,11 @@ $(document).ready(function() {
     // });
     
   // Get Cookies
-  var cookieFlickrtags = $.cookie('flickrtags');
-  var cookieFlickrnumbers = $.cookie('flickrnumebrs');
-  var cookieFlickrref = $.cookie('flickrref');
-  var todolistul = $.cookie('todolist');
+  var cookieFlickrtags = $.cookie('flickrtags'),
+  cookieFlickrnumbers = $.cookie('flickrnumebrs'),
+  cookieFlickrref = $.cookie('flickrref'),
+  todolistul = $.cookie('todolist'),
+  puzzlesnumber = $.cookie('puzlesgameform');
   $('#todomain').html(todolistul);
 
   // Set Cookies values to element
@@ -61,9 +62,9 @@ $(document).ready(function() {
   }
   flickrrefreshing();
 
-  $('#morecards').one('click', function(event) {
-    $('.puzzles').cube();
-  });
+  // $('#morecards').one('click', function(event) {
+    $('.puzzles').cube({puzzles: puzzlesnumber});
+  // });
   // More cards
   $('#morecards').click(function (e) {
     if( $('#cube').css('display') == 'none' )  { 
@@ -81,8 +82,8 @@ $(document).ready(function() {
   });
   // Settings option changing
   $('#settingsmain').submit( function(e) {
-    weatherGeocode('weatherLocation','weatherList');
     e.preventDefault();
+    weatherGeocode('weatherLocation','weatherList');
 
       // Variable for flickr refreshing intercal
       // var flickrint = $('#flickrrefresh').val();
@@ -96,32 +97,22 @@ $(document).ready(function() {
     var tag2 = $('#flickrtags').val();
     var page2 = $('#flickrnumebrs').val();
 
+    // Variable for puzzle game
+    var puzzlesnumbersubmit = $('#puzlesgameform').val();
+
     // set cookie
     $.cookie('flickrtags', tag2, { expires: 365 });
     $.cookie('flickrnumebrs', page2, { expires: 365 });
+    $.cookie('puzlesgameform', puzzlesnumbersubmit, { expires: 365 });
 
     flickrrefreshing();
-
-    // if (tag !== tag2 && page !== page2) {
-      $('.flickr').each(function(index) {
-        $('#flickrtags').val(tag2);
-        $('#flickrnumebrs').val(page2);
-
-        $(this).attr({
-          tags: 'tag',
-          pages: 'page'
-        })
-        .flickr({
-          limit: page2,
-          options: {
-            tags: tag2
-          }
-        });
-      });
-    // } else{
-      // return false;
-    // };
+    if (puzzlesnumber != puzzlesnumbersubmit) {
+      puzzlesnumber = puzzlesnumbersubmit;
+      $('#cubetable, #CubeVictoryMSG').remove();
+      $('.puzzles').cube({puzzles: puzzlesnumber});
+    }
   });
+
   function showLocation(address,woeid) {
     $('#weatherReport').empty();
 
